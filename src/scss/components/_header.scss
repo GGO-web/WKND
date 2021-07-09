@@ -1,21 +1,24 @@
 :root {
-   --header-height: 70px;
+}
+
+@media (max-width: $lg) {
+   :root {
+      --header-offset: 0px;
+   }
 }
 
 .header {
-   --header-offset: 38px;
-
-   position: relative;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
    z-index: 10;
+   transition: background-color 0.3s ease-in-out;
 
    &__inner {
       margin-top: var(--header-offset);
       margin-bottom: var(--header-offset);
       min-height: var(--header-height);
-
-      @media (max-width: $lg) {
-         --header-offset: 0;
-      }
    }
 
    &__logo {

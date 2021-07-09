@@ -68,6 +68,10 @@
          left: 150%;
       }
    }
+
+   @media (max-width: $md) {
+      padding: 13px 23px !important;
+   }
 }
 
 .burger {

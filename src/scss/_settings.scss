@@ -136,10 +136,12 @@ body {
    height: 100%;
    font-family: var(--font-family), sans-serif;
    font-weight: 400;
+   -webkit-font-smoothing: antialiased;
    font-size: 18px;
    line-height: 1.22;
+   text-rendering: optimizeLegibility;
    color: var(--color-white);
-   background-color: var(--bg-color);
+   background-color: #f7f7f7;
 }
 
 .container {

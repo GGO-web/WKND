@@ -478,7 +478,6 @@
 		"at-rule-name-space-after": "always-single-line",
 		"at-rule-no-unknown": null,
 		"at-rule-no-vendor-prefix": true,
-		"at-rule-semicolon-newline-after": "always",
 		"at-rule-semicolon-space-before": "never",
 		"at-rule-whitelist": null,
 		"block-closing-brace-empty-line-before": "never",
@@ -550,7 +549,6 @@
 		"declaration-block-semicolon-space-before": "never",
 		"declaration-block-single-line-max-declarations": 0,
 		"declaration-block-trailing-semicolon": "always",
-		"declaration-colon-newline-after": "always-multi-line",
 		"declaration-colon-space-after": "always-single-line",
 		"declaration-colon-space-before": "never",
 		"declaration-empty-line-before": [

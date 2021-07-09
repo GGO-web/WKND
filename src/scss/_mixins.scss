@@ -9,28 +9,28 @@
    font-weight: 700;
    line-height: calc(65 / 55);
 
-   @include responsive(font-size, $font-size-title, $font-size-extra-large, $xxxl, $sm);
+   @include responsive(font-size, $font-size-title, 32px, $xxl, $sm);
 }
 
 %font-extra-large {
    font-weight: 600;
    line-height: 1.05;
 
-   @include responsive(font-size, $font-size-extra-large, $font-size-large, $xxxl, $sm);
+   @include responsive(font-size, $font-size-extra-large, $font-size-middle, $xxl, $sm);
 }
 
 %font-large {
    font-weight: 700;
    line-height: 1.05;
 
-   @include responsive(font-size, $font-size-large, $font-size-middle, $xxxl, $sm);
+   @include responsive(font-size, $font-size-large, $font-size-x-middle, $xxl, $sm);
 }
 
 %font-middle {
    font-weight: 400;
    line-height: calc(38.5 / 28);
 
-   @include responsive(font-size, $font-size-middle, $font-size-text, $xxxl, $sm);
+   @include responsive(font-size, $font-size-middle, $font-size-text, $xxl, $sm);
 }
 
 %font-small {

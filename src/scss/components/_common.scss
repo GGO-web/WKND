@@ -30,20 +30,6 @@
       line-height: 100%;
       text-align: center;
       color: var(--color-white);
-
-      &::before {
-         content: "";
-         position: absolute;
-         left: -4px;
-         bottom: 0;
-         z-index: -1;
-         display: inline-block;
-         border-radius: 100%;
-         width: 17px;
-         height: 17px;
-         background: linear-gradient(180deg, var(--color-silver) 0%, #ffb800 0.01%, #ffd600 100%);
-         mix-blend-mode: overlay;
-      }
    }
 
    &__description {
@@ -149,6 +135,11 @@
 }
 
 @media (max-width: 840px) {
+   body.hide-scroll .header {
+      padding-right: var(--scrollbar-width);
+      background-color: #000;
+   }
+
    .menu {
       &__burger {
          display: initial;
@@ -214,6 +205,7 @@
 
    body.hide-scroll {
       overflow: hidden;
+      padding-right: var(--scrollbar-width);
    }
 }
 

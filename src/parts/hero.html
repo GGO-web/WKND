@@ -12,7 +12,7 @@
                <button class="hero__button button btn-reset">
                   Рассчитать проект
                </button>
-               <div class="scroll">
+               <div class="hero__scroll scroll">
                   <button aria-label="Прокрутить вниз" class="scroll-trigger btn-reset"></button>
                   <span class="scroll-description">
                      Листайте вниз
@@ -20,18 +20,25 @@
                </div>
             </div>
          </div>
-         <div id="scene" class="hero__parallax">
-            <div class="hero__parallax-item">
-               <img src="img/hero-image.png" alt="Статуя женщины в необычной волнистой маске" class="hero__parallax-image hero__parallax-image--statue" />
+         <span aria-hidden="true" class="hero__inscription"> WK<br />ND </span>
+         <div class="hero__parallax">
+            <div data-depth="0.25" class="hero__parallax-item hero__parallax-item hero__parallax-item--statue">
+               <img src="img/hero/hero-image.png" alt="Статуя женщины в необычной волнистой маске" class="" />
             </div>
-            <div class="hero__parallax-item">
-               <img src="img/cube-first.png" alt="Куб маленького размера" class="hero__parallax-image" />
+            <div data-depth="0.4" class="hero__parallax-item hero__parallax-item hero__parallax-item--cube-small">
+               <img src="img/hero/cube-first.png" alt="Куб маленького размера" class="" />
             </div>
-            <div class="hero__parallax-item">
-               <img width="83px" height="77px" src="img/cube-first.png" alt="Куб среднего размера" class="hero__parallax-image" style="transform: rotate(-122.5deg);" />
+            <div data-depth="0.45" class="hero__parallax-item hero__parallax-item hero__parallax-item--cube-middle">
+               <img src="img/hero/cube-first.png" alt="Куб среднего размера" class="" />
             </div>
-            <div class="hero__parallax-item">
-               <img width="73px" height="63px" src="img/cube-first.png" alt="Куб большого размера" class="hero__parallax-image" style="transform: rotate(72.5deg);" />
+            <div data-depth="0.6" class="hero__parallax-item hero__parallax-item hero__parallax-item--cube-large">
+               <img src="img/hero/cube-first.png" alt="Куб большого размера" class="" />
+            </div>
+            <div data-depth="0.05" class="hero__parallax-item hero__parallax-item hero__parallax-item--lamp-right for-desktop">
+               <img src="img/hero/lamp.png" alt="Большой линейный LED светильник" class="" />
+            </div>
+            <div data-depth="0.05" class="hero__parallax-item hero__parallax-item hero__parallax-item--lamp-left for-desktop">
+               <img src="img/hero/lamp.png" alt="Большой линейный LED светильник" class="" />
             </div>
          </div>
       </div>
