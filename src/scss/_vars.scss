@@ -1,0 +1,29 @@
+:root {
+   // ==!> Colors <!==
+   --color-black: #000;
+   --color-white: #fff;
+   --bg-color: #070707;
+   --color-text-in-white: #151515;
+   --color-primary: #ffc700;
+   --color-silver: #c4c4c4;
+   --color-golden: #fbff32;
+
+   // font-family name
+   --font-family: "Proxima Nova";
+
+   // grid template layout
+   --grid-column: 70px;
+   --grid-gap: 30px;
+}
+
+// font size properties
+$font-size-title: 55px;
+$font-size-text: 18px;
+$font-size-extra-large: 48px;
+$font-size-large: 36px;
+$font-size-middle: 28px;
+$font-size-small: 13px;
+
+// offsets
+$offset-middle: 30px;
+$offset-small: 20px;

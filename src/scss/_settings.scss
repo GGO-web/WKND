@@ -1,0 +1,151 @@
+html {
+   min-width: 280px;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: inherit;
+   font-size: inherit;
+   line-height: inherit;
+}
+
+nav,
+footer,
+header,
+aside {
+   display: block;
+}
+
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+
+input {
+   vertical-align: middle;
+   border: none;
+   font: inherit;
+   line-height: inherit;
+}
+
+input[type="text"] {
+   line-height: 36px\9; // CSS Hack only for IE.
+}
+
+img {
+   vertical-align: middle;
+   min-width: 0;
+   max-width: 100%;
+}
+
+a {
+   line-height: normal;
+   text-decoration: none;
+   color: inherit;
+}
+
+input::placeholder {
+   color: inherit;
+   background-color: inherit;
+}
+
+ul,
+ol {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+polyline,
+svg path {
+   fill: inherit;
+   stroke: inherit;
+}
+
+address {
+   font-style: normal;
+}
+
+button {
+   cursor: pointer;
+}
+
+.btn-reset {
+   border: none;
+   padding: 0;
+   background: transparent;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+   outline: none;
+}
+
+.site-container {
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   min-height: 100vh;
+}
+
+.main {
+   flex: 1 0 auto;
+}
+
+.footer {
+   flex: 0 0 auto;
+}
+
+.hide-scroll {
+   overflow: hidden;
+}
+
+.is-hidden {
+   display: none !important;
+}
+
+/** Show item for desktop only and hide for mobile */
+.for-desktop {
+   display: none;
+}
+
+@media (min-width: $lg + 1px) {
+   .for-desktop {
+      display: initial;
+   }
+}
+
+.visually-hidden {
+   position: absolute;
+   overflow: hidden;
+   margin: -1px;
+   border: none;
+   padding: 0;
+   width: 1px;
+   height: 1px;
+   clip: rect(0 0 0 0);
+}
+
+body {
+   position: relative;
+   overflow-x: hidden;
+   margin: 0;
+   height: 100%;
+   font-family: var(--font-family), sans-serif;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 1.22;
+   color: var(--color-white);
+   background-color: var(--bg-color);
+}
+
+.container {
+   --content-offset: 15px;
+
+   margin: 0 auto;
+   padding: 0 var(--content-offset);
+   max-width: calc(1170px + 2 * var(--content-offset));
+}

@@ -1,0 +1,20 @@
+// ==!> Responsive parameter <!==
+@mixin responsive($parameter, $pcSize, $mobSize, $maxSize, $minSize) {
+   $addSize: strip-unit($pcSize - $mobSize);
+   $maxWidth: strip-unit($maxSize - $minSize);
+
+   // leave the desktop parameter at a width greater than $maxSize
+   @media (min-width: $maxSize) {
+      #{$parameter}: $pcSize;
+   }
+
+   // change the parameter in the range from $minSize to $maxSize
+   @media (min-width: $minSize) and (max-width: $maxSize) {
+      #{$parameter}: calc(#{$mobSize} + #{$addSize} * ((100vw - #{$minSize}) / #{$maxWidth}));
+   }
+
+   // leave the mobile parameter at a width less than $minSize
+   @media (max-width: $minSize) {
+      #{$parameter}: $mobSize;
+   }
+}

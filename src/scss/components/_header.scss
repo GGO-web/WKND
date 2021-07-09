@@ -1,0 +1,31 @@
+:root {
+   --header-height: 70px;
+}
+
+.header {
+   --header-offset: 38px;
+
+   position: relative;
+   z-index: 10;
+
+   &__inner {
+      margin-top: var(--header-offset);
+      margin-bottom: var(--header-offset);
+      min-height: var(--header-height);
+
+      @media (max-width: $lg) {
+         --header-offset: 0;
+      }
+   }
+
+   &__logo {
+      position: relative;
+      z-index: 5;
+   }
+
+   @media (max-width: 840px) {
+      &-menu__inner {
+         margin-top: var(--header-height);
+      }
+   }
+}

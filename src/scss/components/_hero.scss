@@ -1,0 +1,56 @@
+.hero {
+   &__inner {
+      padding: 144px 0;
+   }
+
+   &__title {
+      margin-bottom: 22.5px;
+      max-width: calc(7 * (var(--grid-column) + var(--grid-gap)));
+      font-size: 55px;
+   }
+
+   &__text {
+      margin-bottom: 22.5px;
+      max-width: calc(5 * (var(--grid-column) + var(--grid-gap)));
+
+      @extend %font-middle;
+
+      &::before {
+         content: "";
+         display: inline-block;
+         vertical-align: text-top;
+         margin-right: 9px;
+         margin-left: -2px;
+         width: 2px;
+         height: 28px;
+         background-color: var(--color-primary);
+      }
+   }
+
+   &__content {
+      margin-left: 6px;
+   }
+
+   &__content-wrapper {
+      display: flex;
+      align-items: center;
+   }
+
+   &__button {
+      margin-right: 36.46px;
+      padding: 19px 30px;
+      font-size: 14px;
+      line-height: calc(17 / 14);
+
+      &::after {
+         content: "";
+         display: inline-block;
+         margin-left: 5.71px;
+         width: 17.27px;
+         height: 8.07px;
+         background-image: url("../img/sprite.svg#arrow-right");
+         background-size: contain;
+         background-repeat: no-repeat;
+      }
+   }
+}

@@ -1,0 +1,117 @@
+.button {
+   position: relative;
+   display: inline-block;
+   overflow: hidden;
+   border: 0.7px solid transparent;
+   border-radius: 53px;
+   padding: 13.37px 25.8px;
+   box-shadow: inset 0 -4px 13px rgba(255, 225, 225, 0.25);
+   font-weight: 600;
+   font-size: 12px;
+   line-height: 15px;
+   text-align: center;
+   color: var(--color-black);
+   background: var(--color-primary);
+   filter: drop-shadow(0 0 30px rgba(201, 154, 33, 0.5));
+   transition: background 0.2s ease-out, color 0.2s ease-out;
+
+   &::before {
+      content: "";
+      position: absolute;
+      left: -150%;
+      top: 0;
+      z-index: -1;
+      display: inline-block;
+      width: 10px;
+      height: 100%;
+      background-color: var(--color-white);
+      opacity: 0.8;
+      transform: skew(-30deg);
+      transition: transform 0.4s ease-in-out, opacity 0.6s ease-in-out, animation-play-state 0.6s ease-in-out;
+      animation: brightness 2s cubic-bezier(0.81, 0.99, 0.85, 1) 1s infinite forwards;
+   }
+
+   &--without-filling {
+      border: 0.7px solid var(--color-primary);
+      color: var(--color-white);
+      background: transparent;
+
+      &::before {
+         display: none;
+      }
+
+      @media (any-hover: hover) {
+         &:hover {
+            color: var(--color-black);
+            background-color: var(--color-primary);
+         }
+      }
+   }
+
+   @media (any-hover: hover) {
+      &:hover {
+         &::before {
+            left: 150%;
+            opacity: 0;
+            transform: scale(4) skew(-30deg);
+            animation-play-state: paused;
+         }
+      }
+   }
+
+   @keyframes brightness {
+      from {
+         left: 0;
+      }
+
+      to {
+         left: 150%;
+      }
+   }
+}
+
+.burger {
+   --burger-width: 20px;
+   --burger-height: 14px;
+   --burger-color: var(--color-white);
+
+   @include burger;
+}
+
+.scroll {
+   display: flex;
+   align-items: center;
+
+   &-trigger {
+      position: relative;
+      display: inline-block;
+      border: 1px solid rgba(#fff, 0.4);
+      border-radius: 10px;
+      width: 20px;
+      height: 30px;
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: calc(50% - 0.5px);
+         top: 4.5px;
+         width: 1px;
+         height: 5px;
+         background-color: rgba(#fff, 0.4);
+         animation: scroll 1.2s linear infinite both;
+      }
+
+      @keyframes scroll {
+         to {
+            top: 12px;
+            transform: scale(0);
+         }
+      }
+   }
+
+   &-description {
+      margin-left: 13.6px;
+      font-size: 14px;
+      color: rgba(#fff, 0.4);
+   }
+}

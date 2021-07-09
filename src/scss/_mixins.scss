@@ -1,0 +1,40 @@
+@import "./mixins/strip_unit";
+@import "./mixins/responsive";
+@import "./mixins/breakpoints";
+@import "./mixins/font-face";
+@import "./mixins/burger";
+@import "./mixins/eclipse";
+
+%font-title {
+   font-weight: 700;
+   line-height: calc(65 / 55);
+
+   @include responsive(font-size, $font-size-title, $font-size-extra-large, $xxxl, $sm);
+}
+
+%font-extra-large {
+   font-weight: 600;
+   line-height: 1.05;
+
+   @include responsive(font-size, $font-size-extra-large, $font-size-large, $xxxl, $sm);
+}
+
+%font-large {
+   font-weight: 700;
+   line-height: 1.05;
+
+   @include responsive(font-size, $font-size-large, $font-size-middle, $xxxl, $sm);
+}
+
+%font-middle {
+   font-weight: 400;
+   line-height: calc(38.5 / 28);
+
+   @include responsive(font-size, $font-size-middle, $font-size-text, $xxxl, $sm);
+}
+
+%font-small {
+   font-weight: 600;
+   font-size: 13px;
+   line-height: calc(16 / 13);
+}

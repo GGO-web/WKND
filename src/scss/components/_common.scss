@@ -1,0 +1,242 @@
+// @import "common/example";
+@import "common/buttons";
+
+// ==!> Most Common styles <!==
+.section {
+   @include responsive(padding-top, 50px, 30px, 1440px, 320px);
+   @include responsive(padding-bottom, 50px, 30px, 1440px, 320px);
+}
+
+.title {
+   margin: 0;
+
+   @extend %font-title;
+}
+
+.text {
+   margin: 0;
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+
+   &__link {
+      position: relative;
+      display: inline-block;
+      max-width: 48px;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 100%;
+      text-align: center;
+      color: var(--color-white);
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: -4px;
+         bottom: 0;
+         z-index: -1;
+         display: inline-block;
+         border-radius: 100%;
+         width: 17px;
+         height: 17px;
+         background: linear-gradient(180deg, var(--color-silver) 0%, #ffb800 0.01%, #ffd600 100%);
+         mix-blend-mode: overlay;
+      }
+   }
+
+   &__description {
+      --full-offset: 47px;
+      --padding-left: 24px;
+
+      position: relative;
+      margin-left: calc(var(--full-offset) - var(--padding-left));
+      padding-left: var(--padding-left);
+      max-width: calc(140px + var(--padding-left));
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
+      color: rgba(#fff, 0.2);
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 50%;
+         width: 1px;
+         height: 32px;
+         background-color: rgba(#fff, 0.2);
+         opacity: 1;
+         transform: translateY(-50%);
+      }
+
+      @media (max-width: $xl) {
+         --full-offset: 30px;
+         --padding-left: 15px;
+      }
+   }
+}
+
+.wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   &__logo {
+      margin-right: 10px;
+   }
+}
+
+.menu {
+   display: flex;
+   align-items: center;
+
+   &__inner {
+      @include responsive(margin-right, 96px, 30px, 1920px, $lg);
+   }
+
+   &__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+   }
+
+   &__list-item {
+      margin-right: var(--grid-gap);
+      min-width: var(--grid-column);
+
+      &:last-child {
+         margin-right: 0;
+      }
+   }
+
+   &__list-link {
+      color: rgba(#fff, 0.4);
+
+      @extend %font-small;
+
+      @media (any-hover: hover) {
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+   }
+
+   &__contacts {
+      display: flex;
+      align-items: center;
+
+      &-info {
+         display: inline-flex;
+         flex-direction: column;
+         align-items: flex-start;
+         margin-right: $offset-small;
+      }
+
+      &-link {
+         display: inline-block;
+         white-space: nowrap;
+         color: rgba(#fff, 0.6);
+
+         @extend %font-small;
+      }
+   }
+
+   &__burger {
+      display: none;
+   }
+}
+
+@media (max-width: 840px) {
+   .menu {
+      &__burger {
+         display: initial;
+      }
+
+      &__inner {
+         $nav-offset: 30px;
+
+         position: fixed;
+         left: -100%;
+         top: 0;
+         flex-direction: column;
+         align-items: flex-start;
+         overflow: auto;
+         padding: $nav-offset var(--content-offset);
+         width: 100%;
+         height: calc(100vh - var(--header-height));
+         background-color: var(--bg-color);
+         opacity: 0;
+
+         // set the menu height to 100% of the window height(100vh) minus the header height(80px)
+         transition: left 0.4s ease, opacity 0.3s ease;
+
+         &.is-active {
+            left: 0;
+            opacity: 1;
+         }
+      }
+
+      &__list {
+         display: flex;
+         flex-flow: column nowrap;
+         align-items: flex-start;
+         width: 100%;
+         height: 100%;
+         background-color: var(--bg-color);
+      }
+
+      &__list-item {
+         margin-right: 0;
+         margin-bottom: 20px;
+         border-radius: 5px;
+         padding: 5px;
+         width: 100%;
+         background-color: rgba(#fff, 0.2);
+      }
+
+      &__list-link {
+         text-transform: uppercase;
+         color: var(--color-white);
+
+         @include responsive(font-size, $font-size-middle, 24px, $xxxl, $sm);
+      }
+
+      @for $i from 1 to 4 {
+         $decrement: 10%;
+
+         &__list-item:nth-child(#{$i}) {
+            max-width: calc(100% - #{$decrement} * (#{$i} - 1));
+         }
+      }
+   }
+
+   body.hide-scroll {
+      overflow: hidden;
+   }
+}
+
+.--hover-underline {
+   position: relative;
+   transition: color 0.15s ease-in-out;
+
+   &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.15s ease-in-out;
+   }
+
+   @media (any-hover: hover) {
+      &:hover::before {
+         width: 100%;
+      }
+   }
+}
+
+// ==!> Most Common styles <!==

@@ -1,0 +1,19 @@
+@mixin eclipse($color, $opacity) {
+   position: relative;
+   z-index: 2;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: $color;
+
+   &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color, $opacity);
+   }
+}
