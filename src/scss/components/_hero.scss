@@ -1,6 +1,5 @@
 .hero {
    padding-top: calc(var(--header-height) + 2 * var(--header-offset));
-   min-height: 100vh;
    color: #f7f7f7;
    background: radial-gradient(16.53% 30.73% at 62.42% 43.51%, #ffc700 0%, rgba(255, 199, 0, 0) 100%),
       radial-gradient(9.89% 19.11% at 36.6% 25.91%, #ebff06 0%, rgba(235, 255, 6, 0.08) 0%, rgba(235, 255, 6, 0) 100%),
@@ -12,7 +11,7 @@
    background-color: var(--bg-color);
    background-blend-mode: overlay, normal, normal, normal, normal;
 
-   // @include responsive(min-height, 800px, 500px, $sm, $min);
+   @include responsive(min-height, 800px, 500px, $sm, $min);
 
    &__inner {
       position: relative;
@@ -21,7 +20,7 @@
       justify-content: space-between;
 
       @include responsive(padding-top, 144px, 50px, $xxl, $sm);
-      @include responsive(padding-bottom, 144px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 176px, 50px, $xxl, $sm);
    }
 
    &__title {
@@ -79,7 +78,7 @@
    &__inscription {
       position: absolute;
       right: 23.4%;
-      top: 11.8%;
+      top: 11.1%;
       z-index: 0;
       font-weight: 800;
       line-height: 100%;
@@ -136,7 +135,10 @@
             top: 49px;
             width: 73px;
             height: 68px;
-            transform: rotate(-72.5deg);
+
+            img {
+               transform: rotate(-72.5deg);
+            }
 
             @media (max-width: $lg) {
                right: 150px;
@@ -144,12 +146,14 @@
          }
 
          &--cube-middle {
-            right: 45.7%;
-            top: initial;
-            bottom: 10.2%;
+            right: 45.8%;
+            top: 75.8%;
             width: 83px;
             height: 77px;
-            transform: rotate(122.5deg);
+
+            img {
+               transform: rotate(122.5deg);
+            }
 
             @media (max-width: $lg) {
                right: 100px;
@@ -158,7 +162,7 @@
 
          &--cube-large {
             right: -15px;
-            top: 33.8%;
+            top: 32.3%;
          }
 
          &--lamp-right {

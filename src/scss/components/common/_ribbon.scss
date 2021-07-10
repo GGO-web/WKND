@@ -1,0 +1,43 @@
+.ribbon {
+   position: relative;
+   z-index: 5;
+   display: inline-flex;
+   padding: 21px 10px;
+   background-color: rgba(#ffc700, 0.9);
+
+   &__line {
+      display: inline-flex;
+      overflow: hidden;
+      width: 100%;
+      animation: shove 15s linear 1s infinite;
+      will-change: transform;
+
+      @keyframes shove {
+         from {
+            transform: translateX(0);
+         }
+
+         to {
+            transform: translateX(-100%);
+         }
+      }
+   }
+
+   &__line-item {
+      display: inline-block;
+      margin-right: 35px;
+      line-height: 100%;
+      letter-spacing: 0.105em;
+      white-space: nowrap;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--color-black);
+
+      @extend %font-large;
+
+      &--clipped {
+         -webkit-text-fill-color: transparent;
+         -webkit-text-stroke: 1px var(--color-black);
+      }
+   }
+}

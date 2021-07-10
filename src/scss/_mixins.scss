@@ -13,7 +13,7 @@
 }
 
 %font-extra-large {
-   font-weight: 600;
+   font-weight: 700;
    line-height: 1.05;
 
    @include responsive(font-size, $font-size-extra-large, $font-size-middle, $xxl, $sm);
