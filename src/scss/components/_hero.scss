@@ -95,22 +95,8 @@
    }
 
    &__parallax {
-      flex: 1 1 auto;
-      height: 300px;
-      transform: none;
-      user-select: none;
-
       &-item {
-         position: absolute;
-         left: initial;
-         right: 0;
-         top: 0;
          z-index: 1;
-
-         img {
-            object-fit: contain;
-            object-position: center;
-         }
 
          &--statue {
             right: 7.5%;

@@ -70,6 +70,22 @@
    &__logo {
       margin-right: 10px;
    }
+
+   &__text {
+      margin-left: 10px;
+      max-width: 384px;
+      text-align: right;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 -1px 30px #fbff32;
+      -webkit-text-stroke: 0.5px #fbff32;
+      background-clip: text;
+
+      @extend %font-middle;
+
+      @media (max-width: $sm) {
+         display: none;
+      }
+   }
 }
 
 .--hover-underline {
@@ -101,7 +117,6 @@
    line-height: 100%;
    text-align: center;
    text-transform: uppercase;
-   mix-blend-mode: soft-light;
    user-select: none;
 
    @include responsive(font-size, 288px, 180px, $xxl, $sm);
@@ -120,6 +135,28 @@
 
    @include responsive(font-size, 250px, 160px, $xxl, $sm);
    @include responsive(right, -261px, 0px, $lg, $sm);
+}
+
+.parallax__scene {
+   flex: 1 1 auto;
+   height: 300px;
+   transform: none;
+   user-select: none;
+
+   &-item {
+      position: absolute;
+      left: initial;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      img {
+         // width: 100%;
+         // height: 100%;
+         object-fit: contain;
+         object-position: center;
+      }
+   }
 }
 
 // ==!> Most Common styles <!==

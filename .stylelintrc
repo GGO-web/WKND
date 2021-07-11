@@ -1,7 +1,4 @@
 {
-   "extends": [
-        "./node_modules/prettier-stylelint/config.js",
-    ],
 	"plugins": [
 		"stylelint-scss",
 		"stylelint-order",

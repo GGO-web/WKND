@@ -1,0 +1,143 @@
+.partners {
+   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), 50% calc(100% - 76px), 0 calc(100% - 22px));
+   margin-top: -76px;
+   padding-top: 76px;
+   background-image: linear-gradient(2.39deg, #000 -15.55%, rgba(0, 0, 0, 0) 80.22%),
+      linear-gradient(180deg, #000 -79.72%, rgba(0, 0, 0, 0) 100%), url("../img/partners-bg.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: var(--bg-color);
+
+   &__inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include responsive(padding-top, 132px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 240px, 122px, $xxl, $sm);
+   }
+
+   &__header {
+      @include responsive(margin-bottom, 83px, $offset-middle, $xxl, $sm);
+   }
+
+   &__title {
+      max-width: 270px;
+
+      .section-inscription {
+         @include responsive(right, -476px, 0px, $lg, $sm);
+         @include responsive(top, 85px, 0px, $lg, $sm);
+      }
+   }
+
+   &__slider-wrapper {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 10px 20px;
+      grid-template-columns: repeat(4, 1fr);
+
+      @media (max-width: $md) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   &__slide {
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      padding: 20px 30px;
+
+      &-hover {
+         position: absolute;
+         left: 0;
+         top: 0;
+         z-index: 1;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 15px;
+         padding: 20px 30px;
+         width: 100%;
+         height: 100%;
+         background: rgba(255, 255, 255, 0.03);
+         opacity: 0;
+         transition: opacity 0.2s ease-in-out;
+         backdrop-filter: blur(10px);
+      }
+
+      &-description {
+         text-align: center;
+         color: rgba(#fff, 0.9);
+
+         @extend %font-small;
+
+         &-marked {
+            color: #ff3535;
+         }
+      }
+
+      @media (any-hover: hover) {
+         &:hover {
+            & .partners__slide-hover {
+               opacity: 1;
+            }
+         }
+      }
+   }
+
+   &__parallax {
+      &-item {
+         &--bucket-first {
+            left: -48%;
+            top: initial;
+            bottom: 43.5%;
+            width: 410px;
+            height: 392px;
+
+            img {
+               opacity: 0.7;
+               transform: rotate(102deg);
+            }
+         }
+
+         &--bucket-second {
+            right: -33%;
+            top: initial;
+            bottom: 18.1%;
+
+            img {
+               transform: rotate(180deg);
+            }
+         }
+      }
+   }
+
+   @media (max-width: $md) {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 11px), 50% calc(100% - 38px), 0 calc(100% - 11px));
+
+      &__slide {
+         padding: 10px;
+      }
+   }
+
+   @media (max-width: $sm) {
+      &__slider-wrapper {
+         display: flex;
+         align-items: center;
+         justify-content: flex-start;
+         grid-gap: 0;
+      }
+
+      &__slide {
+         flex: none;
+         width: 200px;
+
+         &-image {
+            object-fit: contain;
+         }
+      }
+   }
+}

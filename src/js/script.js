@@ -27,3 +27,17 @@ scenes.forEach((scene) => {
 
    window.addEventListener("resize", disableParallax);
 });
+
+// elipsis.js
+const ellipsis = Ellipsis(
+   {
+      ellipsis: '…',
+      debounce: 500,
+      responsive: true,
+      lines: 4,
+      portrait: null,
+      break_word: false,
+   }
+);
+const ellipsisElements = document.querySelectorAll('.partners__slide-description');
+ellipsis.add(ellipsisElements);
