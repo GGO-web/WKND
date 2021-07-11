@@ -14,11 +14,6 @@
    @include responsive(min-height, 800px, 500px, $sm, $min);
 
    &__inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
       @include responsive(padding-top, 144px, 50px, $xxl, $sm);
       @include responsive(padding-bottom, 176px, 50px, $xxl, $sm);
    }

@@ -1,9 +1,9 @@
-let choiseSlider;
+let partnersSlider;
 function initSwiper() {
    let screenWidth = window.innerWidth;
    const breakpoint = 576;
-   if (screenWidth < (1 + breakpoint) && !choiseSlider) {
-      choiseSlider = new Swiper(".partners__slider", {
+   if (screenWidth < (1 + breakpoint) && !partnersSlider) {
+      partnersSlider = new Swiper(".partners__slider", {
          // Optional parameters
          loop: false,
          speed: 500,
@@ -17,9 +17,9 @@ function initSwiper() {
          slidePrevClass: "partners__slide-prev",
          slideVisibleClass: "partners__slide--visible",
       });
-   } else if (screenWidth > breakpoint && choiseSlider) {
-      choiseSlider.destroy();
-      choiseSlider = null;
+   } else if (screenWidth > breakpoint && partnersSlider) {
+      partnersSlider.destroy();
+      partnersSlider = undefined;
    }
 }
 

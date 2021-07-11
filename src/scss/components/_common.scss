@@ -115,6 +115,7 @@
    z-index: -1;
    font-weight: 700;
    line-height: 100%;
+   white-space: nowrap;
    text-align: center;
    text-transform: uppercase;
    user-select: none;
@@ -135,6 +136,13 @@
 
    @include responsive(font-size, 250px, 160px, $xxl, $sm);
    @include responsive(right, -261px, 0px, $lg, $sm);
+}
+
+.inner {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .parallax__scene {

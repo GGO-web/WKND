@@ -1,0 +1,138 @@
+.benefits {
+   color: var(--color-text-in-white);
+
+   &__inner {
+      @include responsive(padding-top, 100px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 100px, 70px, $xxl, $sm);
+   }
+
+   &__title {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      color: var(--bg-color);
+
+      @include responsive(margin-bottom, 115px, $offset-middle, $xxl, $sm);
+
+      .section-inscription {
+         text-transform: lowercase;
+      }
+   }
+
+   &__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 50px;
+      padding-right: 50px;
+
+      @include responsive(grid-column-gap, 92px, 40px, $xxl, $md);
+      @include responsive(grid-row-gap, 162px, 60px, $xxl, $md);
+   }
+
+   &__list-item {
+      position: relative;
+      z-index: 2;
+      border-radius: 15px;
+      padding: 24px 24px 24px 32px;
+      max-width: 500px;
+      box-shadow: 0 2px 32px rgba(#000, 0.06);
+      background: #f6f6f6;
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: 50%;
+         bottom: -27px;
+         z-index: -2;
+         border-radius: inherit;
+         width: 90%;
+         height: 90%;
+         background-color: rgba(#f6f6f6, 0.7);
+         transform: translateX(-50%);
+      }
+   }
+
+   &__list-title {
+      margin-bottom: 20px;
+
+      @extend %font-large;
+   }
+
+   &__list-text {
+      font-weight: 600;
+   }
+
+   &__list-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+      border-radius: 100%;
+      padding: 53px;
+      box-shadow: 0 0 43px rgba(#000, 0.07);
+      background: #f6f6f6;
+      transform: translate(50%, -50%);
+
+      @include responsive(padding, 53px, 20px, $xxl, $md);
+
+      &-image {
+         width: 48px;
+         height: 48px;
+      }
+   }
+
+   &__parallax {
+      &-item {
+         &--cube-first {
+            left: -36%;
+            top: 15.6%;
+
+            img {
+               transform: rotate(-127.39deg);
+            }
+         }
+
+         &--cube-second {
+            left: 44.8%;
+            top: 25.6%;
+            width: 77px;
+            height: 72px;
+
+            img {
+               transform: rotate(-143.92deg);
+            }
+         }
+
+         &--cube-third {
+            right: 7.3%;
+            top: initial;
+            bottom: 20.8%;
+
+            img {
+               transform: rotate(165deg);
+            }
+         }
+      }
+   }
+
+   @media (max-width: $md) {
+      &__list {
+         grid-template-columns: 1fr;
+         padding-top: 30px;
+         padding-right: 30px;
+      }
+
+      &__list-item {
+         max-width: 100%;
+
+         &::before {
+            bottom: -20px;
+         }
+      }
+
+      &__list-icon-image {
+         width: 36px;
+         height: 36px;
+      }
+   }
+}

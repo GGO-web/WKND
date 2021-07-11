@@ -5,10 +5,6 @@
    background-color: var(--bg-color);
 
    &__inner {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-
       @include responsive(padding-top, 132px, 50px, $xxl, $sm);
       @include responsive(padding-bottom, 182px, 100px, $xxl, $sm);
    }
