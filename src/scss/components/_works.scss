@@ -1,0 +1,205 @@
+.works {
+   margin-top: -78px;
+   padding-top: 78px;
+   background-image: linear-gradient(2.39deg, #000 -15.55%, rgba(0, 0, 0, 0) 80.22%),
+      linear-gradient(180deg, #000 -79.72%, rgba(0, 0, 0, 0) 100%), url("../img/partners-bg.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: repeat;
+   background-color: var(--bg-color);
+
+   &__inner {
+      flex-direction: column;
+      align-items: stretch;
+
+      @include responsive(padding-top, 144px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 144px, 50px, $xxl, $sm);
+   }
+
+   &__content {
+      position: relative;
+      z-index: 5;
+      flex: 1 1 100%;
+   }
+
+   &__header {
+      @include responsive(margin-bottom, 217px, 50px, $xxl, $sm);
+   }
+
+   &__list {
+      counter-reset: works-counter;
+      display: grid;
+      justify-content: space-between;
+      grid-gap: 30px 40px;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 41px;
+
+      @include responsive(padding-left, 104px, 0px, $xxl, $lg);
+      @include responsive(padding-right, 104px, 0px, $xxl, $lg);
+   }
+
+   &__list-item {
+      position: relative;
+      max-width: 380px;
+
+      &::before {
+         counter-increment: works-counter;
+         content: "0" counter(works-counter);
+         left: 0;
+         top: 0;
+         font-weight: 800;
+         color: rgba(#aeaeae, 0.02);
+         mix-blend-mode: soft-light;
+         transform: translate(-34%, -34%);
+
+         @extend .counter-number;
+      }
+   }
+
+   &__list-item:nth-child(even) {
+      margin-top: 85px;
+      margin-left: auto;
+      text-align: right;
+
+      .works__list-text {
+         padding-right: 20px;
+
+         &::before {
+            right: 0;
+         }
+      }
+
+      &::before {
+         transform: translate(34%, -34%);
+      }
+   }
+
+   &__list-item:nth-child(odd) {
+      margin-top: -41px;
+
+      .works__list-text {
+         padding-left: 20px;
+
+         &::before {
+            left: 0;
+         }
+      }
+   }
+
+   &__list-title {
+      margin-bottom: 30px;
+      line-height: 100%;
+
+      @include responsive(font-size, $font-size-title, $font-size-middle, $xxl, $sm);
+   }
+
+   &__list-text {
+      position: relative;
+      font-weight: 600;
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         border-radius: 17px;
+         width: 1px;
+         height: 100%;
+         box-shadow: 0 0 11px rgba(255, 184, 0, 0.4);
+         background: var(--color-primary);
+      }
+   }
+
+   &__parallax {
+      margin-top: -300px;
+
+      &-item {
+         z-index: 0;
+
+         &--cube-first {
+            right: -71.7%;
+            top: 11px;
+
+            img {
+               width: 646px;
+               height: 600px;
+               transform: rotate(-91deg);
+            }
+         }
+
+         &--cube-second {
+            left: -38.8%;
+            top: 27.8%;
+
+            img {
+               width: 305px;
+               height: 283px;
+            }
+         }
+
+         &--cube-third {
+            right: 54.3%;
+            top: 44.6%;
+
+            img {
+               width: 98px;
+               height: 91px;
+               transform: rotate(-91deg);
+            }
+         }
+
+         &--cube-fourth {
+            right: 38.8%;
+            top: initial;
+            bottom: 12.3%;
+
+            img {
+               width: 98px;
+               height: 91px;
+               transform: rotate(60deg);
+            }
+         }
+
+         &--lamp {
+            right: -53.5%;
+            top: initial;
+            bottom: 6.3%;
+
+            img {
+               transform: rotate(-18deg);
+            }
+         }
+      }
+   }
+
+   @media (max-width: $sm) {
+      &__list {
+         grid-template-columns: 1fr;
+         padding-top: 0;
+      }
+
+      &__list-item {
+         max-width: 100%;
+
+         &:nth-child(odd),
+         &:nth-child(even) {
+            margin-top: 0;
+         }
+
+         &:nth-child(even) {
+            text-align: left;
+
+            .works__list-text {
+               padding-left: 20px;
+
+               &::before {
+                  left: 0;
+               }
+            }
+         }
+
+         &::before {
+            display: none;
+         }
+      }
+   }
+}

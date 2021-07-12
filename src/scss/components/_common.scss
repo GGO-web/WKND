@@ -73,12 +73,12 @@
 
    &__text {
       margin-left: 10px;
-      max-width: 384px;
       text-align: right;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 -1px 30px #fbff32;
       -webkit-text-stroke: 0.5px #fbff32;
       background-clip: text;
+      @include responsive(max-width, 384px, 240px, $xxl, $md);
 
       @extend %font-middle;
 

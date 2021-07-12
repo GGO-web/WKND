@@ -60,6 +60,12 @@
 
    &__list-text {
       font-weight: 600;
+
+      &::before {
+         content: "- ";
+         display: inline-block;
+         vertical-align: text-top;
+      }
    }
 
    &__list-icon {

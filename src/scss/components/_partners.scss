@@ -11,7 +11,7 @@
 
    &__inner {
       @include responsive(padding-top, 132px, 50px, $xxl, $sm);
-      @include responsive(padding-bottom, 240px, 122px, $xxl, $sm);
+      @include responsive(padding-bottom, 240px, 72px, $xxl, $sm);
    }
 
    &__header {
@@ -117,9 +117,7 @@
       }
    }
 
-   @media (max-width: $md) {
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 11px), 50% calc(100% - 38px), 0 calc(100% - 11px));
-
+   @media (max-width: $lg) {
       &__slide {
          padding: 10px;
 
@@ -127,6 +125,10 @@
             padding: 10px;
          }
       }
+   }
+
+   @media (max-width: $md) {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 11px), 50% calc(100% - 38px), 0 calc(100% - 11px));
    }
 
    @media (max-width: $sm) {

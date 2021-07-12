@@ -40,4 +40,9 @@
          -webkit-text-stroke: 1px var(--color-black);
       }
    }
+
+   &--larger {
+      transform: rotate(-4deg) translateY(-198px);
+      transform-origin: right;
+   }
 }
