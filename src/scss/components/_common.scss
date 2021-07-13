@@ -2,6 +2,7 @@
 @import "common/menu";
 @import "common/buttons";
 @import "common/ribbon";
+@import "common/quiz";
 
 // ==!> Most Common styles <!==
 .title {
@@ -141,8 +142,12 @@
 .inner {
    position: relative;
    display: flex;
-   align-items: center;
    justify-content: space-between;
+}
+
+.content {
+   position: relative;
+   z-index: 5;
 }
 
 .parallax__scene {

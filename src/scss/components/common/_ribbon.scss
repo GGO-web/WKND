@@ -26,6 +26,8 @@
    &__line-item {
       display: inline-block;
       margin-right: 35px;
+      font-weight: 700;
+      font-size: $font-size-large;
       line-height: 100%;
       letter-spacing: 0.105em;
       white-space: nowrap;
@@ -33,16 +35,28 @@
       text-transform: uppercase;
       color: var(--color-black);
 
-      @extend %font-large;
-
       &--clipped {
          -webkit-text-fill-color: transparent;
          -webkit-text-stroke: 1px var(--color-black);
       }
    }
 
+   // &[data-direction="ltr"] {
+   //    .ribbon__line {
+   //       animation-direction: reverse;
+   //    }
+   // }
+
    &--larger {
       transform: rotate(-4deg) translateY(-198px);
       transform-origin: right;
+
+      @media (max-width: $md) {
+         transform: rotate(-4deg) translateY(-100px);
+      }
+   }
+
+   &--pos-bg {
+      z-index: 0;
    }
 }

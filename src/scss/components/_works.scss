@@ -13,12 +13,10 @@
       align-items: stretch;
 
       @include responsive(padding-top, 144px, 50px, $xxl, $sm);
-      @include responsive(padding-bottom, 144px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 295px, 50px, $xxl, $sm);
    }
 
    &__content {
-      position: relative;
-      z-index: 5;
       flex: 1 1 100%;
    }
 
@@ -138,7 +136,7 @@
 
          &--cube-third {
             right: 54.3%;
-            top: 44.6%;
+            top: 40.8%;
 
             img {
                width: 98px;
@@ -149,8 +147,7 @@
 
          &--cube-fourth {
             right: 38.8%;
-            top: initial;
-            bottom: 12.3%;
+            top: 75.3%;
 
             img {
                width: 98px;

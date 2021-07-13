@@ -13,7 +13,7 @@ function closeBurgerMenu() {
    document.body.classList.remove("hide-scroll");
 }
 
-burger.addEventListener("click", function() {
+burger.addEventListener("click", function () {
    if (menu.classList.contains("is-active")) {
       closeBurgerMenu();
    } else {

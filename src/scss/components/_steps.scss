@@ -1,0 +1,124 @@
+.steps {
+   margin-top: -79px;
+   padding-top: 79px;
+   background: radial-gradient(
+         49.46% 49.46% at 53.92% 34.93%,
+         rgba(255, 184, 0, 0.31) 0%,
+         #ffb800 0.01%,
+         rgba(255, 184, 0, 0) 12.87%
+      ),
+      radial-gradient(28.24% 55.37% at 31.52% 5.98%, #ffc700 0%, rgba(255, 199, 0, 0) 68.29%),
+      linear-gradient(113.52deg, #000 -13.72%, rgba(0, 0, 0, 0) 65.16%),
+      linear-gradient(304.99deg, #000 -19.14%, rgba(0, 0, 0, 0) 84.51%), url("../img/hero/old-black-background.jpg");
+   background-blend-mode: soft-light, overlay, normal, normal, normal;
+
+   &__inner {
+      z-index: 2;
+      flex-direction: column;
+      align-items: stretch;
+
+      @include responsive(padding-top, 197px, 50px, $xxl, $sm);
+      @include responsive(padding-bottom, 182px, 50px, $xxl, $sm);
+   }
+
+   &__content {
+      display: flex;
+      flex: 1 1 100%;
+      justify-content: space-between;
+      border-radius: 28px;
+      padding: 36px 81px 57px 100px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(15px);
+
+      @include responsive(padding-left, 100px, $offset-middle, $xl, $lg);
+      @include responsive(padding-top, 36px, $offset-middle, $xl, $lg);
+      @include responsive(padding-bottom, 57px, $offset-middle, $xl, $lg);
+      @include responsive(padding-right, 81px, $offset-middle, $xl, $lg);
+
+      &-main {
+         flex-basis: 40%;
+         margin-right: $offset-middle;
+         max-width: 330px;
+      }
+
+      &-quiz {
+         flex-basis: 60%;
+      }
+
+      @media (max-width: $lg) {
+         flex-direction: column;
+
+         &-main {
+            max-width: 100%;
+         }
+      }
+   }
+
+   &__title {
+      margin-bottom: 25px;
+   }
+
+   &__text {
+      margin-bottom: 30px;
+      font-weight: 600;
+
+      span {
+         display: inline-block;
+
+         &:first-child {
+            margin-bottom: 18px;
+         }
+      }
+
+      &--marked {
+         color: var(--color-primary);
+      }
+   }
+
+   &__offer {
+      display: inline-block;
+      border-radius: 10px;
+      width: 170px;
+      height: 53px;
+      background-image: url("../img/tilda.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+   }
+
+   &__parallax {
+      margin-top: -300px;
+
+      &-item {
+         z-index: 1;
+
+         &--statue {
+            left: 7.8%;
+            top: -50%;
+
+            @media (max-width: $md) {
+               top: -20%;
+            }
+         }
+
+         &--cube {
+            left: -10.6%;
+            top: 51.2%;
+
+            img {
+               width: 169px;
+               height: 157px;
+               transform: rotate(60deg);
+            }
+         }
+
+         &--bucket {
+            right: -19.97%;
+            top: 13.5%;
+
+            img {
+               transform: rotate(180deg) scaleX(-1);
+            }
+         }
+      }
+   }
+}

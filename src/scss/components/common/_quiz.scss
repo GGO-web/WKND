@@ -1,0 +1,120 @@
+.quiz {
+   &__progressbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 33px;
+      margin-bottom: 41px;
+      border-radius: 90px;
+      height: 4px;
+      background: linear-gradient(
+            90deg,
+            #d59b09 0.86%,
+            #d59b09 79.54%,
+            rgba(247, 177, 0, 0.869792) 99.32%,
+            rgba(255, 184, 0, 0) 100%
+         ),
+         #f6f6f6;
+
+      &-bullet {
+         display: inline-block;
+         border: 2px solid var(--color-white);
+         border-radius: 100%;
+         width: 13px;
+         height: 13px;
+         background: var(--color-primary);
+      }
+   }
+
+   &__question {
+      margin: 0;
+      margin-bottom: 29px;
+
+      @extend %font-middle;
+   }
+
+   &__answers {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -40px;
+   }
+
+   &__answer {
+      display: flex;
+      flex: 0 1 33.333%;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-right: 40px;
+
+      &-image {
+         display: inline-block;
+         margin-bottom: 20px;
+         width: 100px;
+         height: 100px;
+         background-color: var(--color-silver);
+         object-fit: cover;
+      }
+
+      &-text {
+         display: inline-block;
+         max-width: 150px;
+         text-align: center;
+      }
+   }
+
+   &__navigation {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__button {
+      padding: 19px 40px;
+      font-size: 14px;
+
+      &::before {
+         display: none;
+      }
+
+      &-icon {
+         width: 17px;
+         height: 8px;
+         fill: currentColor;
+      }
+
+      &--disabled {
+         color: rgba(#fff, 0.3);
+         pointer-events: none;
+
+         @extend .button--without-filling;
+      }
+   }
+
+   @media (max-width: $lg) {
+      &__answer-text {
+         max-width: 100%;
+      }
+   }
+
+   @media (max-width: 640px) {
+      &__answers {
+         margin-right: -20px;
+      }
+
+      &__answer {
+         flex: 0 1 50%;
+         margin-bottom: 30px;
+         padding-right: 20px;
+      }
+   }
+
+   @media (max-width: $xs) {
+      &__answer {
+         flex: 0 1 100%;
+
+         &-image {
+            width: 100%;
+         }
+      }
+   }
+}
