@@ -29,6 +29,7 @@
    &__question {
       margin: 0;
       margin-bottom: 29px;
+      max-width: calc(4 * var(--grid-column) + 3 * var(--grid-gap));
 
       @extend %font-middle;
    }

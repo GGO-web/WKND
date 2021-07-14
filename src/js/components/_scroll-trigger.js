@@ -13,8 +13,6 @@ scrollTriggers.forEach((trigger) => {
          parent = parent.offsetParent;
       }
 
-      console.log(offsetTop);
-
       window.scroll({
          top: offsetTop + 100,
          behavior: "smooth",

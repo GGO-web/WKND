@@ -93,6 +93,7 @@
 
    &__list-text {
       position: relative;
+      margin-bottom: $offset-small;
       font-weight: 600;
 
       &::before {
