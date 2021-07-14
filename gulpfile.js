@@ -58,7 +58,7 @@ const styles = () => {
 
 const scripts = () => {
    // copy the external scripts from the vendor or node_modules folders
-   src(["./node_modules/ellipsis.js/ellipsis.min.js", "./src/js/vendor/**.js"])
+   src(["./node_modules/ellipsis.js/ellipsis.min.js", "./node_modules/gsap/dist/gsap.min.js", "./src/js/vendor/**.js"])
       .pipe(concat("vendor.js"))
       .pipe(uglify().on("error", notify.onError()))
       .pipe(

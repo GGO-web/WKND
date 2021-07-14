@@ -1,0 +1,80 @@
+$animation-easing: cubic-bezier(0.75, -1.27, 0.3, 2.33);
+$transition-delay: 0.3s;
+
+.cursor {
+   position: fixed;
+   z-index: 99999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 100%;
+   width: 10px;
+   height: 10px;
+   background-color: var(--color-primary);
+   transform: translate(-50%, -50%) scale(1);
+   transition: $transition-delay $animation-easing transform, $transition-delay $animation-easing opacity;
+   pointer-events: none;
+
+   &__hover {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(#fff, 0.9);
+      background-color: rgba(#000, 0.8);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      transition: opacity $transition-delay $animation-easing, transform $transition-delay $animation-easing;
+   }
+}
+
+.cursor__active-link .cursor__hover-view {
+   opacity: 1;
+   transform: translate(-50%, -50%) scale(1);
+}
+
+.cursor__active-button .cursor__hover-push {
+   opacity: 1;
+   transform: translate(-50%, -50%) scale(1);
+}
+
+.cursor-follower {
+   position: fixed;
+   left: 0;
+   top: 0;
+   z-index: 9999;
+   border: 2px solid var(--color-primary);
+   border-radius: 100%;
+   width: 30px;
+   height: 30px;
+   transform: translate(-3px, -3px);
+   transition: $transition-delay cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+      0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+   pointer-events: none;
+
+   &.active {
+      opacity: 1;
+      transform: translate(-3px, -3px) scale(0);
+   }
+}
+
+* {
+   cursor: none !important;
+}
+
+@media (pointer: coarse) {
+   .cursor,
+   .cursor-follower {
+      display: none;
+   }
+}
