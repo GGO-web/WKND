@@ -11,7 +11,7 @@
 
    &__title {
       margin-bottom: 12px;
-      max-width: 430px;
+      max-width: calc(5 * (var(--grid-column) + var(--grid-gap)));
    }
 
    &__list {
@@ -22,10 +22,6 @@
       position: relative;
       margin-bottom: 10px;
       border-radius: 28px;
-
-      &:last-child {
-         margin-bottom: 0;
-      }
 
       &::before {
          counter-increment: cases-counter;
@@ -41,6 +37,10 @@
       &:hover {
          background-color: rgba(255, 255, 255, 0.04);
          backdrop-filter: blur(15px);
+      }
+
+      &:last-child {
+         margin-bottom: 0;
       }
    }
 
@@ -68,7 +68,7 @@
 
       &-title {
          margin-bottom: 17px;
-         max-width: 270px;
+         max-width: calc(3 * (var(--grid-column) + var(--grid-gap)));
          line-height: calc(38 / 48);
 
          @extend %font-extra-large;
@@ -77,13 +77,14 @@
       &-technologies {
          display: inline-block;
          margin-bottom: 16px;
+         max-width: calc(3 * (var(--grid-column) + var(--grid-gap)));
          font-weight: 600;
          color: var(--color-primary);
       }
 
       &-description {
          margin-bottom: 27px;
-         max-width: 400px;
+         max-width: calc(4 * (var(--grid-column) + var(--grid-gap)));
       }
 
       &-link {
@@ -244,13 +245,13 @@
             object-fit: cover;
          }
 
-         &-title,
-         &-description {
+         &-title {
             max-width: 100%;
          }
 
          &-description {
             margin-bottom: 10px;
+            max-width: 100%;
          }
       }
    }

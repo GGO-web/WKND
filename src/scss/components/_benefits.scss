@@ -9,7 +9,7 @@
    &__title {
       position: relative;
       z-index: 2;
-      max-width: 650px;
+      max-width: calc(7 * var(--grid-column) + 6 * var(--grid-gap));
       color: var(--bg-color);
 
       @include responsive(margin-bottom, 115px, $offset-middle, $xxl, $sm);
@@ -53,7 +53,7 @@
    }
 
    &__list-title {
-      margin-bottom: 20px;
+      margin-bottom: $offset-small;
 
       @extend %font-large;
    }
@@ -124,15 +124,15 @@
    @media (max-width: $md) {
       &__list {
          grid-template-columns: 1fr;
-         padding-top: 30px;
-         padding-right: 30px;
+         padding-top: $offset-middle;
+         padding-right: $offset-middle;
       }
 
       &__list-item {
          max-width: 100%;
 
          &::before {
-            bottom: -20px;
+            bottom: -$offset-small;
          }
       }
 

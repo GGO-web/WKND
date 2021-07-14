@@ -38,7 +38,7 @@
       &-main {
          flex-basis: 40%;
          margin-right: $offset-middle;
-         max-width: 330px;
+         max-width: calc(3 * var(--grid-column) + 4 * var(--grid-gap));
       }
 
       &-quiz {
@@ -59,7 +59,7 @@
    }
 
    &__text {
-      margin-bottom: 30px;
+      margin-bottom: $offset-middle;
       font-weight: 600;
 
       span {

@@ -38,7 +38,7 @@
 
    &__list-item {
       position: relative;
-      max-width: 380px;
+      max-width: calc(4 * (var(--grid-column) + var(--grid-gap)));
 
       &::before {
          counter-increment: works-counter;
@@ -60,7 +60,7 @@
       text-align: right;
 
       .works__list-text {
-         padding-right: 20px;
+         padding-right: $offset-small;
 
          &::before {
             right: 0;
@@ -76,7 +76,7 @@
       margin-top: -41px;
 
       .works__list-text {
-         padding-left: 20px;
+         padding-left: $offset-small;
 
          &::before {
             left: 0;
@@ -85,7 +85,7 @@
    }
 
    &__list-title {
-      margin-bottom: 30px;
+      margin-bottom: $offset-middle;
       line-height: 100%;
 
       @include responsive(font-size, $font-size-title, $font-size-middle, $xxl, $sm);
@@ -186,7 +186,7 @@
             text-align: left;
 
             .works__list-text {
-               padding-left: 20px;
+               padding-left: $offset-small;
 
                &::before {
                   left: 0;

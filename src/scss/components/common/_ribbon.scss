@@ -41,11 +41,11 @@
       }
    }
 
-   // &[data-direction="ltr"] {
-   //    .ribbon__line {
-   //       animation-direction: reverse;
-   //    }
-   // }
+   &[data-direction="ltr"] {
+      .ribbon__line {
+         animation-direction: reverse;
+      }
+   }
 
    &--larger {
       transform: rotate(-4deg) translateY(-198px);

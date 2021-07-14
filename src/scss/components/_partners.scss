@@ -11,7 +11,7 @@
 
    &__inner {
       @include responsive(padding-top, 132px, 50px, $xxl, $sm);
-      @include responsive(padding-bottom, 240px, 72px, $xxl, $sm);
+      @include responsive(padding-bottom, 240px, 50px, $xxl, $sm);
    }
 
    &__header {
@@ -19,7 +19,7 @@
    }
 
    &__title {
-      max-width: 270px;
+      max-width: calc(3 * var(--grid-column) + 2 * var(--grid-gap));
 
       .section-inscription {
          @include responsive(right, -476px, 0px, $lg, $sm);
@@ -91,6 +91,8 @@
    }
 
    &__parallax {
+      margin-top: -300px;
+
       &-item {
          &--bucket-first {
             left: -48%;
@@ -132,6 +134,9 @@
    }
 
    @media (max-width: $sm) {
+      margin-top: -38px;
+      padding-top: 38px;
+
       &__slider-wrapper {
          display: flex;
          justify-content: flex-start;
@@ -140,8 +145,10 @@
 
       &__slide {
          flex: none;
+         max-width: 200px;
 
          &-image {
+            max-height: 140px;
             object-fit: contain;
          }
       }
