@@ -25,25 +25,71 @@ window.addEventListener("orientationchange", () => {
    closeBurgerMenu();
 });
 
-const headerLinks = document.querySelectorAll(".header__list-link[data-scroll-to]");
+if (!window.matchMedia("(pointer: coarse)").matches) {
+   const cursor = document.querySelector(".cursor");
+   const follower = document.querySelector(".cursor-follower");
 
-if (headerLinks) {
-   window.addEventListener("scroll", (event) => {
-      headerLinks.forEach((link) => {
-         const section = document.querySelector(link.dataset.scrollTo);
-         const header = document.querySelector(".header");
-         const sectionOffset = section.offsetTop - header.offsetHeight;
-         const sectionHeight = section.offsetHeight;
+   let posX = 0,
+      posY = 0;
 
-         if (
-            pageYOffset >= sectionOffset &&
-            1 + pageYOffset <= sectionOffset + sectionHeight
-         ) {
-            link.classList.add("header__list-link--active");
-         } else link.classList.remove("header__list-link--active");
-      });
+   let mouseX = 0,
+      mouseY = 0;
+
+   gsap.to({}, 0.016, {
+      repeat: -1,
+      onRepeat: function () {
+         posX += (mouseX - posX) / 9;
+         posY += (mouseY - posY) / 9;
+
+         gsap.set(follower, {
+            css: {
+               left: posX - 12,
+               top: posY - 12
+            }
+         });
+
+         gsap.set(cursor, {
+            css: {
+               left: mouseX,
+               top: mouseY
+            }
+         });
+      }
+   });
+
+   document.addEventListener("mousemove", function (event) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+   });
+
+   // yellow circle
+   const links = document.querySelectorAll("a");
+
+   links.forEach(link => {
+      link.addEventListener("mouseenter", () => {
+         cursor.classList.add("cursor__active-link");
+         follower.classList.add("active");
+      })
+      link.addEventListener("mouseleave", () => {
+         cursor.classList.remove("cursor__active-link");
+         follower.classList.remove("active");
+      })
+   });
+
+   const buttons = document.querySelectorAll("button");
+
+   buttons.forEach(button => {
+      button.addEventListener("mouseenter", () => {
+         cursor.classList.add("cursor__active-button");
+         follower.classList.add("active");
+      })
+      button.addEventListener("mouseleave", () => {
+         cursor.classList.remove("cursor__active-button");
+         follower.classList.remove("active");
+      })
    });
 }
+
 
 let partnersSlider;
 function initSwiper() {
@@ -78,32 +124,6 @@ window.addEventListener("resize", function () {
    initSwiper();
 });
 
-const redirectItems = document.querySelectorAll("a[data-scroll-to], button[data-scroll-to]");
-
-if (redirectItems) {
-   redirectItems.forEach((item) => {
-      item.addEventListener("click", (event) => {
-         event.preventDefault();
-         const targetItem = document.querySelector(
-            event.target.dataset.scrollTo
-         );
-
-         if (targetItem) {
-            closeBurgerMenu();
-            const offsetTop = targetItem.offsetTop;
-            const headerHeight = document.querySelector(".header").offsetHeight;
-
-            window.scroll({
-               top: offsetTop - headerHeight,
-               behavior: "smooth",
-            });
-         }
-
-         return false;
-      });
-   });
-}
-
 (() => {
    const windowWidth = window.innerWidth;
    const ribbonLines = document.querySelectorAll(".ribbon__line");
@@ -121,6 +141,25 @@ if (redirectItems) {
    });
 })();
 
+const redirectItems = document.querySelectorAll("a[data-scroll-to], button[data-scroll-to]");
+redirectItems.forEach(item => {
+   item.addEventListener("click", event => {
+      event.preventDefault();
+      const targetItem = document.querySelector(event.target.dataset.scrollTo);
+
+      if (targetItem) {
+         const offsetTop = targetItem.offsetTop;
+
+         window.scroll({
+            top: offsetTop,
+            behavior: "smooth",
+         });
+      }
+
+      return false;
+   });
+});
+
 const scrollTriggers = document.querySelectorAll(".scroll-trigger");
 
 scrollTriggers.forEach((trigger) => {
@@ -135,8 +174,6 @@ scrollTriggers.forEach((trigger) => {
          offsetTop += parent.offsetTop;
          parent = parent.offsetParent;
       }
-
-      console.log(offsetTop);
 
       window.scroll({
          top: offsetTop + 100,
