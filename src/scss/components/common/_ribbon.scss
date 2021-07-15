@@ -9,7 +9,8 @@
       display: inline-flex;
       overflow: hidden;
       width: 100%;
-      animation: shove 15s linear 1s infinite;
+      animation: shove 15s linear infinite;
+      animation-play-state: paused;
       will-change: transform;
 
       @keyframes shove {
@@ -50,10 +51,6 @@
    &--larger {
       transform: rotate(-4deg) translateY(-198px);
       transform-origin: right;
-
-      @media (max-width: $md) {
-         transform: rotate(-4deg) translateY(-100px);
-      }
    }
 
    &--pos-bg {

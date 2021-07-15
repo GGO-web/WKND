@@ -11,7 +11,7 @@ $transition-delay: 0.3s;
    width: 10px;
    height: 10px;
    background-color: var(--color-primary);
-   transform: translate(-50%, -50%) scale(1);
+   transform: scale(1);
    transition: $transition-delay $animation-easing transform, $transition-delay $animation-easing opacity;
    pointer-events: none;
 
@@ -57,14 +57,15 @@ $transition-delay: 0.3s;
    border-radius: 100%;
    width: 30px;
    height: 30px;
-   transform: translate(-3px, -3px);
+   transform: translate(calc(50% + 5px), calc(50% + 5px));
+   transform-origin: top left;
    transition: $transition-delay cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
       0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
    pointer-events: none;
 
    &.active {
       opacity: 1;
-      transform: translate(-3px, -3px) scale(0);
+      transform: scale(0);
    }
 }
 

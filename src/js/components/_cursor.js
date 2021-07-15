@@ -5,8 +5,10 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
    let posX = 0,
       posY = 0;
 
-   let mouseX = 0,
-      mouseY = 0;
+   let mouseX = -100,
+      mouseY = -100;
+
+   const followerSize = follower.offsetWidth;
 
    gsap.to({}, 0.016, {
       repeat: -1,
@@ -16,8 +18,8 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
 
          gsap.set(follower, {
             css: {
-               left: posX - 12,
-               top: posY - 12
+               left: posX - followerSize,
+               top: posY - followerSize
             }
          });
 
