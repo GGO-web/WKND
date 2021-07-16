@@ -35,15 +35,17 @@ $transition-delay: 0.3s;
       opacity: 0;
       transform: translate(-50%, -50%) scale(0);
       transition: opacity $transition-delay $animation-easing, transform $transition-delay $animation-easing;
+
+      &-select {
+         width: 70px;
+         height: 70px;
+      }
    }
 }
 
-.cursor__active-link .cursor__hover-view {
-   opacity: 1;
-   transform: translate(-50%, -50%) scale(1);
-}
-
-.cursor__active-button .cursor__hover-push {
+.cursor__active-link .cursor__hover-view,
+.cursor__active-button .cursor__hover-push,
+.cursor__active-option .cursor__hover-select {
    opacity: 1;
    transform: translate(-50%, -50%) scale(1);
 }
