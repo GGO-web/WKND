@@ -242,8 +242,8 @@ body {
   width: 10px;
   height: 10px;
   background-color: var(--color-primary);
-  transform: scale(1);
-  transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  transition: background-color 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33);
+  will-change: transform;
   pointer-events: none; }
   .cursor__hover {
     position: absolute;
@@ -269,6 +269,11 @@ body {
       width: 70px;
       height: 70px; }
 
+.cursor__active-ribbon {
+  background-color: var(--color-black); }
+  .cursor__active-ribbon + .cursor-follower {
+    border-color: var(--color-black); }
+
 .cursor__active-link .cursor__hover-view,
 .cursor__active-button .cursor__hover-push,
 .cursor__active-option .cursor__hover-select {
@@ -277,20 +282,17 @@ body {
 
 .cursor-follower {
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 20px;
+  top: 20px;
   z-index: 9999;
   border: 2px solid var(--color-primary);
   border-radius: 100%;
   width: 30px;
   height: 30px;
-  transform: translate(calc(50% + 5px), calc(50% + 5px));
-  transform-origin: top left;
-  transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+  transition: 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity, border-color 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33);
   pointer-events: none; }
   .cursor-follower.active {
-    opacity: 1;
-    transform: scale(0); }
+    opacity: 0; }
 
 * {
   cursor: none !important; }
@@ -594,6 +596,9 @@ body {
   .ribbon--larger {
     transform: rotate(-4deg) translateY(-198px);
     transform-origin: right; }
+    @media (max-width: 576px) {
+      .ribbon--larger {
+        transform: rotate(-4deg) translateY(-100px); } }
   .ribbon--pos-bg {
     z-index: 0; }
 
@@ -646,6 +651,8 @@ body {
   .quiz__answer-image {
     display: inline-block;
     margin-bottom: 20px;
+    width: 150px;
+    height: 90px;
     background-color: var(--color-silver);
     -o-object-fit: cover;
     object-fit: cover; }
@@ -889,15 +896,6 @@ body {
   background-repeat: no-repeat;
   background-color: var(--bg-color);
   background-blend-mode: overlay, normal, normal, normal, normal; }
-  @media (min-width: 576px) {
-    .hero {
-      min-height: 800px; } }
-  @media (min-width: 320px) and (max-width: 576px) {
-    .hero {
-      min-height: calc(500px + 300 * ((100vw - 320px) / 256)); } }
-  @media (max-width: 320px) {
-    .hero {
-      min-height: 500px; } }
   @media (min-width: 1320px) {
     .hero__inner {
       padding-top: 144px; } }
@@ -1043,6 +1041,10 @@ body {
   z-index: 2;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 76px), 50% 100%, 0 calc(100% - 76px));
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 76px), 50% 100%, 0 calc(100% - 76px));
+  background-image: linear-gradient(2.39deg, #000 -15.55%, rgba(0, 0, 0, 0) 80.22%), linear-gradient(180deg, #000 -79.72%, rgba(0, 0, 0, 0) 100%), url(../img/partners-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
   background-color: var(--bg-color); }
   @media (min-width: 1320px) {
     .cases__inner {
@@ -1862,7 +1864,8 @@ body {
       z-index: 1; }
       .steps__parallax-item--statue {
         left: 7.8%;
-        top: -50%; }
+        top: -50%;
+        max-width: 351px; }
         @media (max-width: 768px) {
           .steps__parallax-item--statue {
             top: -20%; } }

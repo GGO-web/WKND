@@ -45,15 +45,15 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
 
          gsap.set(follower, {
             css: {
-               left: posX - followerSize,
-               top: posY - followerSize
+               x: posX - followerSize,
+               y: posY - followerSize
             }
          });
 
          gsap.set(cursor, {
             css: {
-               left: mouseX,
-               top: mouseY
+               x: mouseX,
+               y: mouseY
             }
          });
       }
@@ -87,6 +87,19 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
       })
       button.addEventListener("mouseleave", () => {
          cursor.classList.remove("cursor__active-button");
+         follower.classList.remove("active");
+      })
+   });
+
+   const ribbons = document.querySelectorAll(".ribbon");
+
+   ribbons.forEach(ribbon => {
+      ribbon.addEventListener("mouseenter", () => {
+         cursor.classList.add("cursor__active-option");
+         follower.classList.add("active");
+      })
+      ribbon.addEventListener("mouseleave", () => {
+         cursor.classList.remove("cursor__active-option");
          follower.classList.remove("active");
       })
    });
@@ -215,17 +228,21 @@ window.addEventListener("resize", function () {
       answerToggle(answers[selectedIndex], selectedIndex);
    }
 
+   const browserReload = () => {
+      location.reload();
+   }
+
    const quizIsOver = () => {
       for (let i = 0; i < countQuestions; ++i) {
          if (selected_answers[i] === -1) {
+            buttonsStates();
+            buttonNext.removeEventListener("click", browserReload);
             return false;
          }
       }
 
-      const confirmAnswer = confirm("Узнать стоимось сайта?");
-      if (confirmAnswer) {
-         // find out the cost MODAL
-      }
+      buttonNext.classList.remove("quiz__button--disabled");
+      buttonNext.addEventListener("click", browserReload);
 
       return true;
    }
