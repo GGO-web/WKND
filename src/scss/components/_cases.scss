@@ -2,6 +2,11 @@
    position: relative;
    z-index: 2;
    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 76px), 50% 100%, 0 calc(100% - 76px));
+   background-image: linear-gradient(2.39deg, #000 -15.55%, rgba(0, 0, 0, 0) 80.22%),
+      linear-gradient(180deg, #000 -79.72%, rgba(0, 0, 0, 0) 100%), url(../img/partners-bg.jpg);
+   background-position: center;
+   background-size: cover;
+   background-repeat: repeat-y;
    background-color: var(--bg-color);
 
    &__inner {

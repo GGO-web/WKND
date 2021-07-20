@@ -11,8 +11,8 @@ $transition-delay: 0.3s;
    width: 10px;
    height: 10px;
    background-color: var(--color-primary);
-   transform: scale(1);
-   transition: $transition-delay $animation-easing transform, $transition-delay $animation-easing opacity;
+   transition: background-color $transition-delay $animation-easing;
+   will-change: transform;
    pointer-events: none;
 
    &__hover {
@@ -43,6 +43,14 @@ $transition-delay: 0.3s;
    }
 }
 
+.cursor__active-ribbon {
+   background-color: var(--color-black);
+
+   & + .cursor-follower {
+      border-color: var(--color-black);
+   }
+}
+
 .cursor__active-link .cursor__hover-view,
 .cursor__active-button .cursor__hover-push,
 .cursor__active-option .cursor__hover-select {
@@ -52,22 +60,18 @@ $transition-delay: 0.3s;
 
 .cursor-follower {
    position: fixed;
-   left: 0;
-   top: 0;
+   left: 20px;
+   top: 20px;
    z-index: 9999;
    border: 2px solid var(--color-primary);
    border-radius: 100%;
    width: 30px;
    height: 30px;
-   transform: translate(calc(50% + 5px), calc(50% + 5px));
-   transform-origin: top left;
-   transition: $transition-delay cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
-      0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+   transition: 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity, border-color $transition-delay $animation-easing;
    pointer-events: none;
 
    &.active {
-      opacity: 1;
-      transform: scale(0);
+      opacity: 0;
    }
 }
 

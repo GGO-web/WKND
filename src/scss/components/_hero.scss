@@ -11,8 +11,6 @@
    background-color: var(--bg-color);
    background-blend-mode: overlay, normal, normal, normal, normal;
 
-   @include responsive(min-height, 800px, 500px, $sm, $min);
-
    &__inner {
       @include responsive(padding-top, 144px, 50px, $xxl, $sm);
       @include responsive(padding-bottom, 176px, 50px, $xxl, $sm);

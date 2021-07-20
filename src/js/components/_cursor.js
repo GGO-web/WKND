@@ -18,15 +18,15 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
 
          gsap.set(follower, {
             css: {
-               left: posX - followerSize,
-               top: posY - followerSize
+               x: posX - followerSize,
+               y: posY - followerSize
             }
          });
 
          gsap.set(cursor, {
             css: {
-               left: mouseX,
-               top: mouseY
+               x: mouseX,
+               y: mouseY
             }
          });
       }
@@ -60,6 +60,19 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
       })
       button.addEventListener("mouseleave", () => {
          cursor.classList.remove("cursor__active-button");
+         follower.classList.remove("active");
+      })
+   });
+
+   const ribbons = document.querySelectorAll(".ribbon");
+
+   ribbons.forEach(ribbon => {
+      ribbon.addEventListener("mouseenter", () => {
+         cursor.classList.add("cursor__active-option");
+         follower.classList.add("active");
+      })
+      ribbon.addEventListener("mouseleave", () => {
+         cursor.classList.remove("cursor__active-option");
          follower.classList.remove("active");
       })
    });

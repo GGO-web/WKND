@@ -98,6 +98,7 @@
          &--statue {
             left: 7.8%;
             top: -50%;
+            max-width: 351px;
 
             @media (max-width: $md) {
                top: -20%;

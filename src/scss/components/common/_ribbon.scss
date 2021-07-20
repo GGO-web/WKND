@@ -51,6 +51,10 @@
    &--larger {
       transform: rotate(-4deg) translateY(-198px);
       transform-origin: right;
+
+      @media (max-width: $sm) {
+         transform: rotate(-4deg) translateY(-100px);
+      }
    }
 
    &--pos-bg {

@@ -87,17 +87,21 @@
       answerToggle(answers[selectedIndex], selectedIndex);
    }
 
+   const browserReload = () => {
+      location.reload();
+   }
+
    const quizIsOver = () => {
       for (let i = 0; i < countQuestions; ++i) {
          if (selected_answers[i] === -1) {
+            buttonsStates();
+            buttonNext.removeEventListener("click", browserReload);
             return false;
          }
       }
 
-      const confirmAnswer = confirm("Узнать стоимось сайта?");
-      if (confirmAnswer) {
-         // find out the cost MODAL
-      }
+      buttonNext.classList.remove("quiz__button--disabled");
+      buttonNext.addEventListener("click", browserReload);
 
       return true;
    }
